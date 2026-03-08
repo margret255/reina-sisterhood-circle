@@ -57,11 +57,11 @@ const Footer = () => {
               <a href="#" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Twitter">
                 <Twitter size={18} />
               </a>
-              <a href="mailto:hello@rwcc.org" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Email">
-                <Mail size={18} />
-              </a>
-            </div>
-            <p className="text-sm opacity-70">hello@rwcc.org</p>
+               <a href="mailto:reinacampuscircle@gmail.com" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Email">
+                 <Mail size={18} />
+               </a>
+             </div>
+             <p className="text-sm opacity-70">reinacampuscircle@gmail.com</p>
           </div>
         </div>
 
