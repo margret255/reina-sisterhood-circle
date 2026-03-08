@@ -93,7 +93,7 @@ const Activities = () => {
             title="Our Past Events"
             subtitle="A look back at the impactful events we've organized for our community"
           />
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
+           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
             {pastEvents.map((event, i) => (
               <motion.div
                 key={event.title}
@@ -101,33 +101,29 @@ const Activities = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border group hover:shadow-xl transition-shadow"
+                className="bg-card rounded-xl overflow-hidden shadow-md border border-border group hover:shadow-lg transition-shadow"
               >
-                <div className="aspect-[4/5] overflow-hidden">
+                <div className="aspect-[3/4] overflow-hidden">
                   <img
                     src={event.poster}
                     alt={event.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-6">
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
+                <div className="p-4">
+                  <span className="inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold mb-2">
                     {event.tag}
                   </span>
-                  <h3 className="text-xl font-display font-bold text-foreground">{event.title}</h3>
-                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{event.desc}</p>
-                  <div className="mt-4 flex flex-wrap gap-4 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      📅 {event.date}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      📍 {event.location}
-                    </span>
+                  <h3 className="text-sm font-display font-bold text-foreground leading-snug">{event.title}</h3>
+                  <p className="text-muted-foreground mt-1.5 text-xs leading-relaxed line-clamp-3">{event.desc}</p>
+                  <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-muted-foreground">
+                    <span className="flex items-center gap-1">📅 {event.date}</span>
+                    <span className="flex items-center gap-1">📍 {event.location}</span>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
+           </div>
         </div>
       </section>
     </Layout>
