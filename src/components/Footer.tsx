@@ -52,17 +52,14 @@ const Footer = () => {
               <a href="#" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Facebook">
-                <Facebook size={18} />
+              <a href="#" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
               </a>
-              <a href="#" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Twitter">
-                <Twitter size={18} />
+              <a href="mailto:reinacampuscircle@gmail.com" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Gmail">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               </a>
-               <a href="mailto:reinacampuscircle@gmail.com" className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors" aria-label="Email">
-                 <Mail size={18} />
-               </a>
-             </div>
-             <p className="text-sm opacity-70">reinacampuscircle@gmail.com</p>
+            </div>
+            <p className="text-sm opacity-70">reinacampuscircle@gmail.com</p>
           </div>
         </div>
 
