@@ -21,7 +21,7 @@ const About = () => {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImg} alt="RWCC community" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-foreground/60" />
+          <div className="absolute inset-0 bg-foreground/40" />
         </div>
         <div className="relative container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground">About RWCC</h1>
