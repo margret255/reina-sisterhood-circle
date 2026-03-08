@@ -8,6 +8,11 @@ import wellnessImg from "@/assets/wellness.jpg";
 import outreachImg from "@/assets/community-outreach.jpg";
 import celebrationImg from "@/assets/celebration.jpg";
 import empowermentImg from "@/assets/empowerment-talk.jpg";
+import girlsDayOutImg from "@/assets/girls-day-out-picnic.jpg";
+import contraceptivesTalkImg from "@/assets/contraceptives-talk.jpg";
+import childrensHomeImg from "@/assets/childrens-home-visit.jpg";
+import girlsTalkImg from "@/assets/girls-talk-event.jpg";
+import leadershipImg from "@/assets/rwcc-leadership.jpg";
 
 const images = [
   { src: heroImg, alt: "RWCC community on campus" },
@@ -17,6 +22,11 @@ const images = [
   { src: outreachImg, alt: "Community outreach" },
   { src: celebrationImg, alt: "Celebration event" },
   { src: empowermentImg, alt: "Empowerment talk" },
+  { src: girlsDayOutImg, alt: "Girls Day Out picnic" },
+  { src: contraceptivesTalkImg, alt: "Contraceptives Talk event" },
+  { src: childrensHomeImg, alt: "Aina Children's Home visit" },
+  { src: girlsTalkImg, alt: "Girls Talk conference" },
+  { src: leadershipImg, alt: "RWCC leadership committee" },
 ];
 
 const Gallery = () => {
