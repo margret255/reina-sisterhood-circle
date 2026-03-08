@@ -5,6 +5,7 @@ import wellnessImg from "@/assets/wellness.jpg";
 import mentorImg from "@/assets/mentorship.jpg";
 import empowermentImg from "@/assets/empowerment-talk.jpg";
 import circleImg from "@/assets/sisterhood-circle.jpg";
+import memberStoryImg from "@/assets/member-story-reina.jpg";
 
 type PostType = "leader-spotlight" | "member-story" | "leadership-video" | "opinion";
 
