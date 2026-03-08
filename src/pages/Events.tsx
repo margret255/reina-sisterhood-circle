@@ -5,39 +5,32 @@ import SectionHeading from "@/components/SectionHeading";
 
 const events = [
   {
-    title: "Sisterhood Wellness Evening",
-    desc: "An evening of self-care, guided meditation, and heartfelt conversations about mental wellness.",
-    date: "March 22, 2026",
-    location: "Student Center, Room 204",
-    tag: "Wellness",
-  },
-  {
-    title: "Empowerment Conference 2026",
-    desc: "Our annual conference featuring keynote speakers, panel discussions, and networking sessions for young women leaders.",
-    date: "April 10, 2026",
-    location: "Main Auditorium",
-    tag: "Conference",
-  },
-  {
-    title: "Motherhood & Campus Life Workshop",
-    desc: "A supportive workshop for student mothers balancing academics, parenting, and personal growth.",
-    date: "April 28, 2026",
-    location: "Women's Resource Center",
-    tag: "Workshop",
-  },
-  {
-    title: "Community Care Drive",
-    desc: "Join us as we collect and distribute essential supplies to women and families in need.",
-    date: "May 5, 2026",
-    location: "Campus Quad",
+    title: "Pad Drive",
+    desc: "Join us in collecting and distributing sanitary pads to support women and girls who lack access to menstrual hygiene products. Together, we can break the stigma and ensure dignity for all.",
+    date: "Coming Soon",
+    location: "TBA",
     tag: "Outreach",
   },
   {
-    title: "Leadership & Destiny Night",
-    desc: "An inspiring evening celebrating women's leadership and the destiny each woman carries within her.",
-    date: "May 20, 2026",
-    location: "Chapel Hall",
-    tag: "Leadership",
+    title: "Women's Debate",
+    desc: "An empowering debate session where women engage in thoughtful discussions on topics that matter—building confidence, critical thinking, and public speaking skills.",
+    date: "Coming Soon",
+    location: "TBA",
+    tag: "Empowerment",
+  },
+  {
+    title: "Cancer Awareness Event",
+    desc: "Raising awareness about cancer prevention, early detection, and support for those affected. Learn the signs, get screened, and join the fight against cancer.",
+    date: "Coming Soon",
+    location: "TBA",
+    tag: "Health",
+  },
+  {
+    title: "Endometriosis Talk",
+    desc: "An informative session about endometriosis—understanding the condition, its symptoms, treatment options, and supporting women living with endo. Breaking the silence on women's health.",
+    date: "Coming Soon",
+    location: "TBA",
+    tag: "Health",
   },
 ];
 
