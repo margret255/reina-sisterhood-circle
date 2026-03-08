@@ -1,43 +1,51 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
-import empowermentImg from "@/assets/empowerment-talk.jpg";
-import mentorImg from "@/assets/mentorship.jpg";
-import wellnessImg from "@/assets/wellness.jpg";
-import outreachImg from "@/assets/community-outreach.jpg";
-import celebrationImg from "@/assets/celebration.jpg";
+import posterPicnic from "@/assets/poster-picnic.jpg";
+import posterContraceptives from "@/assets/poster-contraceptives.jpg";
+import posterGirlsTalk from "@/assets/poster-girls-talk.jpg";
+import posterChildrensHome from "@/assets/poster-childrens-home.jpg";
 
-const activities = [
+const pastEvents = [
   {
-    title: "Women Empowerment Talks",
-    desc: "Inspiring talks and panels that ignite confidence and courage in every woman. Our speakers share stories of resilience, leadership, and triumph to motivate our sisters.",
-    img: empowermentImg,
-    impact: "200+ women inspired across 12 sessions",
+    title: "Girls Talk: Ignite Her Spark, Illuminate the World",
+    desc: "An impactful conversation featuring guest speakers Santa Kagendo, Dr. Dorothy Bundi, and Dr. Mary Mwadulo sharing wisdom and inspiration with young women.",
+    poster: posterGirlsTalk,
+    date: "December 3, 2025",
+    location: "Theater 3",
+    tag: "Conference",
   },
   {
-    title: "Mentorship Sessions",
-    desc: "One-on-one and group mentoring that guides women through personal, academic, and career challenges with the support of experienced mentors.",
-    img: mentorImg,
-    impact: "50+ mentorship pairs formed",
+    title: "Aina Children's Home Visit",
+    desc: "A heartwarming outreach in partnership with We Care Foundation—gift giving, games, sharing meals, mentorship, and emotional support for the children.",
+    poster: posterChildrensHome,
+    date: "December 12, 2025",
+    location: "Aina Children's Home",
+    tag: "Outreach",
   },
   {
-    title: "Wellness & Mental Health Discussions",
-    desc: "Safe spaces for honest conversations about mental health, emotional healing, and self-care practices that nurture the whole woman.",
-    img: wellnessImg,
-    impact: "Ongoing weekly wellness circles",
+    title: "Girls Day Out Picnic",
+    desc: "Fun, friends, food, and memories! A day to chill, unwind, bond through girl talk, and enjoy games together as sisters.",
+    poster: posterPicnic,
+    date: "January 24, 2026",
+    location: "Olive Gardens",
+    tag: "Social",
   },
   {
-    title: "Community Outreach & Support",
-    desc: "Extending our circle of care beyond campus to support women, mothers, and families in the broader community through donation drives and service projects.",
-    img: outreachImg,
-    impact: "5 community outreach programs completed",
+    title: "A Contraceptives Talk",
+    desc: "Making informed choices about sexual and reproductive health—covering types, benefits, myths, access, and an open Q&A with guest speaker Pauline Wanzala.",
+    poster: posterContraceptives,
+    date: "February 20, 2026",
+    location: "Theater 1",
+    tag: "Health",
   },
-  {
-    title: "Campus Empowerment Events",
-    desc: "From conferences to celebration ceremonies, we create events that bring women together to learn, connect, celebrate, and grow as a community.",
-    img: celebrationImg,
-    impact: "3 major campus events hosted annually",
-  },
+];
+
+const impactStats = [
+  { value: "200+", label: "Women Empowered" },
+  { value: "4+", label: "Major Events" },
+  { value: "50+", label: "Mentorship Pairs" },
+  { value: "1", label: "Community Outreach" },
 ];
 
 const fadeUp = {
@@ -57,30 +65,69 @@ const Activities = () => {
         </div>
       </section>
 
+      {/* Impact Stats */}
+      <section className="py-16 bg-accent/30">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {impactStats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-6 bg-card rounded-2xl shadow-sm border border-border"
+              >
+                <div className="text-3xl md:text-4xl font-display font-bold text-primary">{stat.value}</div>
+                <div className="text-muted-foreground text-sm mt-1">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Past Events with Posters */}
       <section className="section-padding">
-        <div className="container mx-auto space-y-20">
-          {activities.map((activity, i) => (
-            <motion.div
-              key={activity.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}
-              style={{ direction: i % 2 === 1 ? "rtl" : "ltr" }}
-            >
-              <div style={{ direction: "ltr" }}>
-                <img src={activity.img} alt={activity.title} className="rounded-2xl shadow-lg w-full object-cover aspect-[4/3]" />
-              </div>
-              <div style={{ direction: "ltr" }}>
-                <h3 className="text-2xl font-display font-bold text-foreground mb-3">{activity.title}</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">{activity.desc}</p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
-                  ✨ {activity.impact}
+        <div className="container mx-auto">
+          <SectionHeading
+            title="Our Past Events"
+            subtitle="A look back at the impactful events we've organized for our community"
+          />
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            {pastEvents.map((event, i) => (
+              <motion.div
+                key={event.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border group hover:shadow-xl transition-shadow"
+              >
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={event.poster}
+                    alt={event.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <div className="p-6">
+                  <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
+                    {event.tag}
+                  </span>
+                  <h3 className="text-xl font-display font-bold text-foreground">{event.title}</h3>
+                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{event.desc}</p>
+                  <div className="mt-4 flex flex-wrap gap-4 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1.5">
+                      📅 {event.date}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      📍 {event.location}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </Layout>
