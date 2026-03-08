@@ -14,7 +14,111 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      branch_applications: {
+        Row: {
+          created_at: string
+          email: string
+          estimated_students: string
+          full_name: string
+          id: string
+          location: string
+          motivation: string
+          university: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          estimated_students: string
+          full_name: string
+          id?: string
+          location: string
+          motivation: string
+          university: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          estimated_students?: string
+          full_name?: string
+          id?: string
+          location?: string
+          motivation?: string
+          university?: string
+        }
+        Relationships: []
+      }
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      membership_applications: {
+        Row: {
+          campus: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          phone: string | null
+          reason: string
+        }
+        Insert: {
+          campus: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          reason: string
+        }
+        Update: {
+          campus?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          reason?: string
+        }
+        Relationships: []
+      }
+      newsletter_signups: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
