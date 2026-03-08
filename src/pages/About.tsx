@@ -104,10 +104,10 @@ const About = () => {
             <SectionHeading subtitle="Our Founder" title="Meet Our Founder" description="The heart and vision behind RWCC." />
            <div className="flex justify-center">
              <div className="bg-card rounded-2xl overflow-hidden shadow-sm max-w-sm">
-               <img src={founderImg} alt="Leem, RWCC Founder" className="w-full aspect-[4/3] object-cover" />
-               <div className="p-5 text-center">
-                 <h4 className="font-display font-semibold text-foreground">Leem</h4>
-                 <p className="text-sm text-muted-foreground mt-1">Founder & President of RWCC</p>
+                <img src={founderImg} alt="Faith, RWCC Founder" className="w-full object-contain" />
+                <div className="p-5 text-center">
+                  <h4 className="font-display font-semibold text-foreground">Faith</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Founder & President of RWCC</p>
                </div>
              </div>
            </div>
