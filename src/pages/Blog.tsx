@@ -99,11 +99,11 @@ const Blog = () => {
                 className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full"
               >
                 {post.img ? (
-                  <div className="aspect-video overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={post.img}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 ) : post.video ? (
