@@ -98,27 +98,21 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="section-padding bg-secondary">
-        <div className="container mx-auto">
-          <SectionHeading subtitle="Our Team" title="Meet the Hearts Behind RWCC" description="A dedicated team of women passionate about making a difference." />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: "Founder & President", img: mentorImg },
-              { name: "Vice President", img: circleImg },
-              { name: "Wellness Coordinator", img: heroImg },
-            ].map((member) => (
-              <div key={member.name} className="bg-card rounded-2xl overflow-hidden shadow-sm">
-                <img src={member.img} alt={member.name} className="w-full aspect-[4/3] object-cover" />
-                <div className="p-5 text-center">
-                  <h4 className="font-display font-semibold text-foreground">{member.name}</h4>
-                  <p className="text-sm text-muted-foreground mt-1">RWCC Leadership Team</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+       {/* Team */}
+       <section className="section-padding bg-secondary">
+         <div className="container mx-auto">
+           <SectionHeading subtitle="Our Founder" title="Meet Leem" description="The heart and vision behind RWCC." />
+           <div className="flex justify-center">
+             <div className="bg-card rounded-2xl overflow-hidden shadow-sm max-w-sm">
+               <img src={founderImg} alt="Leem, RWCC Founder" className="w-full aspect-[4/3] object-cover" />
+               <div className="p-5 text-center">
+                 <h4 className="font-display font-semibold text-foreground">Leem</h4>
+                 <p className="text-sm text-muted-foreground mt-1">Founder & President of RWCC</p>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
     </Layout>
   );
 };
