@@ -1,4 +1,4 @@
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, Heart, MessageSquare, Ribbon, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
