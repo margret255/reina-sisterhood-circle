@@ -6,6 +6,7 @@ import mentorImg from "@/assets/mentorship.jpg";
 import empowermentImg from "@/assets/empowerment-talk.jpg";
 import circleImg from "@/assets/sisterhood-circle.jpg";
 import memberStoryImg from "@/assets/member-story-reina.jpg";
+import founderImg from "@/assets/founder-leem.jpg";
 
 type PostType = "leader-spotlight" | "member-story" | "leadership-video" | "opinion";
 
@@ -97,6 +98,16 @@ const posts: BlogPost[] = [
      img: mentorImg,
      type: "member-story",
      slug: "motherhood-on-campus",
+   },
+   {
+     title: "Our Founder's Story: Leading with Purpose & Motherhood",
+     excerpt:
+       "Meet the visionary mom behind RWCC. How Faith balances leadership, motherhood, and building a sisterhood that empowers every woman.",
+     category: "Founder Story",
+     date: "March 1, 2026",
+     img: founderImg,
+     type: "member-story",
+     slug: "founder-faith-motherhood",
    },
 ];
 
