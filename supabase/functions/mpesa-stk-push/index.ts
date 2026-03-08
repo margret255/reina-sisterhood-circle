@@ -27,7 +27,8 @@ Deno.serve(async (req) => {
 
     const consumerKey = Deno.env.get("MPESA_CONSUMER_KEY")!;
     const consumerSecret = Deno.env.get("MPESA_CONSUMER_SECRET")!;
-    const passkey = Deno.env.get("MPESA_PASSKEY")!;
+    // Sandbox passkey for shortcode 174379
+    const passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
     const tillNumber = "6502301";
 
     // Step 1: Get OAuth token
