@@ -156,7 +156,7 @@ const Index = () => {
             {[
               { img: mentorImg, title: "Mentorship Sessions", desc: "One-on-one and group mentoring that guides women through personal and academic challenges." },
               { img: outreachImg, title: "Community Outreach", desc: "Extending care beyond campus to support women and mothers in our broader community." },
-              { img: heroImg, title: "Campus Events", desc: "Empowerment events that bring women together to learn, connect, and grow." },
+              { img: campusEventImg, title: "Campus Events", desc: "Empowerment events that bring women together to learn, connect, and grow." },
             ].map((item, i) => (
               <motion.div
                 key={item.title}

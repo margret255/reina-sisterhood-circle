@@ -54,7 +54,10 @@ const Events = () => {
         <div className="container mx-auto max-w-3xl space-y-6">
           {events.map((event) => (
             <div key={event.title} className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border hover:shadow-md transition-shadow flex gap-5">
-              <div className="flex items-start justify-between flex-wrap gap-3">
+              <div className="hidden sm:flex w-14 h-14 shrink-0 rounded-full bg-primary/10 items-center justify-center mt-1">
+                <event.icon className="text-primary" size={24} />
+              </div>
+              <div className="flex items-start justify-between flex-wrap gap-3 flex-1 min-w-0">
                 <div className="flex-1 min-w-0">
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
                     {event.tag}
