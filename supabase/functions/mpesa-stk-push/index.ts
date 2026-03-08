@@ -27,7 +27,8 @@ Deno.serve(async (req) => {
 
     const consumerKey = Deno.env.get("MPESA_CONSUMER_KEY")!;
     const consumerSecret = Deno.env.get("MPESA_CONSUMER_SECRET")!;
-    const passkey = Deno.env.get("MPESA_PASSKEY")!;
+    // Sandbox passkey for shortcode 174379
+    const passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
     const tillNumber = "6502301";
 
     // Step 1: Get OAuth token
@@ -59,11 +60,28 @@ Deno.serve(async (req) => {
     }
 
     // Step 2: STK Push
+    // Sandbox uses shortcode 174379; production uses actual till number
+    const sandboxShortCode = "174379";
     const timestamp = new Date()
       .toISOString()
       .replace(/[-T:.Z]/g, "")
       .slice(0, 14);
-    const password = btoa(`${tillNumber}${passkey}${timestamp}`);
+    const password = btoa(`${sandboxShortCode}${passkey}${timestamp}`);
+
+    const stkBody = {
+      BusinessShortCode: sandboxShortCode,
+      Password: password,
+      Timestamp: timestamp,
+      TransactionType: "CustomerPayBillOnline",
+      Amount: Math.round(Number(amount)),
+      PartyA: formattedPhone,
+      PartyB: sandboxShortCode,
+      PhoneNumber: formattedPhone,
+      CallBackURL: `https://xlaedvkpvtpmviysfnxy.supabase.co/functions/v1/mpesa-callback`,
+      AccountReference: "RWCC",
+      TransactionDesc: "Support RWCC",
+    };
+    console.log("STK request body:", JSON.stringify(stkBody));
 
     const stkRes = await fetch(
       "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
@@ -73,23 +91,14 @@ Deno.serve(async (req) => {
           Authorization: `Bearer ${tokenData.access_token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          BusinessShortCode: tillNumber,
-          Password: password,
-          Timestamp: timestamp,
-          TransactionType: "CustomerBuyGoodsOnline",
-          Amount: Math.round(Number(amount)),
-          PartyA: formattedPhone,
-          PartyB: tillNumber,
-          PhoneNumber: formattedPhone,
-          CallBackURL: `https://xlaedvkpvtpmviysfnxy.supabase.co/functions/v1/mpesa-callback`,
-          AccountReference: "RWCC",
-          TransactionDesc: "Support RWCC",
-        }),
+        body: JSON.stringify(stkBody),
       }
     );
 
-    const stkData = await stkRes.json();
+    const stkText = await stkRes.text();
+    console.log("STK response:", stkText);
+    let stkData;
+    try { stkData = JSON.parse(stkText); } catch { stkData = { errorMessage: stkText }; }
     console.log("STK response:", stkData);
 
     if (stkData.ResponseCode === "0") {
