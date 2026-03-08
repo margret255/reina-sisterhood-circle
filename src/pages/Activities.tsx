@@ -93,7 +93,7 @@ const Activities = () => {
             title="Our Past Events"
             subtitle="A look back at the impactful events we've organized for our community"
           />
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
             {pastEvents.map((event, i) => (
               <motion.div
                 key={event.title}
@@ -103,14 +103,14 @@ const Activities = () => {
                 variants={fadeUp}
                 className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border group hover:shadow-xl transition-shadow"
               >
-                <div className="aspect-[4/5] overflow-hidden">
+                <div className="aspect-video overflow-hidden">
                   <img
                     src={event.poster}
                     alt={event.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-4">
+                <div className="p-6">
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
                     {event.tag}
                   </span>
