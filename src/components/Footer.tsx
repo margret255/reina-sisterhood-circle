@@ -38,6 +38,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold mb-4">Get Involved</h4>
             <ul className="space-y-2 text-sm opacity-70">
               <li><Link to="/join" className="hover:opacity-100 transition-opacity">Join RWCC</Link></li>
+              <li><Link to="/start-branch" className="hover:opacity-100 transition-opacity">Start a Branch</Link></li>
               <li><Link to="/support" className="hover:opacity-100 transition-opacity">Support Us</Link></li>
               <li><Link to="/gallery" className="hover:opacity-100 transition-opacity">Gallery</Link></li>
               <li><Link to="/contact" className="hover:opacity-100 transition-opacity">Contact</Link></li>

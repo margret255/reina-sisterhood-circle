@@ -12,6 +12,7 @@ import Gallery from "./pages/Gallery";
 import Join from "./pages/Join";
 import Support from "./pages/Support";
 import Contact from "./pages/Contact";
+import StartBranch from "./pages/StartBranch";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/join" element={<Join />} />
           <Route path="/support" element={<Support />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/start-branch" element={<StartBranch />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
