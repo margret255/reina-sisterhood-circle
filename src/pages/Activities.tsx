@@ -103,7 +103,7 @@ const Activities = () => {
                 variants={fadeUp}
                 className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border group hover:shadow-xl transition-shadow"
               >
-                <div className="aspect-video overflow-hidden">
+                <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={event.poster}
                     alt={event.title}
