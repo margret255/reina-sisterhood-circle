@@ -87,92 +87,47 @@ const Blog = () => {
 
       <section className="section-padding">
         <div className="container mx-auto">
-          {/* Featured / Leader Spotlight — first post large */}
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 grid md:grid-cols-2 gap-6 bg-card rounded-2xl overflow-hidden shadow-sm"
-          >
-            <div className="aspect-[4/5] md:aspect-auto overflow-hidden">
-              <img
-                src={posts[0].img}
-                alt={posts[0].title}
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <div className="flex flex-col justify-center p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${typeLabels[posts[0].type].color}`}>
-                  {typeLabels[posts[0].type].label}
-                </span>
-                <span className="text-xs text-muted-foreground">{posts[0].date}</span>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
-                {posts[0].title}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">{posts[0].excerpt}</p>
-            </div>
-          </motion.article>
-
-          {/* Video Post */}
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 bg-card rounded-2xl overflow-hidden shadow-sm"
-          >
-            <div className="aspect-video overflow-hidden bg-black">
-              <video
-                src={posts[1].video}
-                controls
-                className="w-full h-full object-cover"
-                poster=""
-              />
-            </div>
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${typeLabels[posts[1].type].color}`}>
-                  {typeLabels[posts[1].type].label}
-                </span>
-                <span className="text-xs text-muted-foreground">{posts[1].date}</span>
-              </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-2">
-                {posts[1].title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{posts[1].excerpt}</p>
-            </div>
-          </motion.article>
-
-          {/* Remaining posts grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {posts.slice(2).map((post, i) => (
+          {/* All posts in equal grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {posts.map((post, i) => (
               <motion.article
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+                className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full"
               >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={post.img}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
+                {post.img ? (
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={post.img}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ) : post.video ? (
+                  <div className="aspect-video overflow-hidden bg-black">
+                    <video
+                      src={post.video}
+                      controls
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : null}
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 mb-3">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${typeLabels[post.type].color}`}>
                       {typeLabels[post.type].label}
                     </span>
                     <span className="text-xs text-muted-foreground">{post.date}</span>
                   </div>
-                  <h3 className="text-xl font-display font-bold text-foreground mb-2">
+                  <h3 className="text-lg font-display font-bold text-foreground mb-2">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-grow">
+                    {post.excerpt}
+                  </p>
                 </div>
               </motion.article>
             ))}
