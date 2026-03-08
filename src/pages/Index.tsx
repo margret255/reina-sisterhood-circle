@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import NewsletterSection from "@/components/NewsletterSection";
-import heroImg from "@/assets/hero-women.jpg";
+import heroImg from "@/assets/rwcc-team.jpg";
 import circleImg from "@/assets/sisterhood-circle.jpg";
 import outreachImg from "@/assets/community-outreach.jpg";
 import mentorImg from "@/assets/mentorship.jpg";
