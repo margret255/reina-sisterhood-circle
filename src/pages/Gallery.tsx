@@ -39,9 +39,7 @@ const Gallery = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className={`rounded-2xl overflow-hidden cursor-pointer group ${
-                  i === 0 ? "md:col-span-2 md:row-span-2" : ""
-                }`}
+                className="rounded-2xl overflow-hidden cursor-pointer group"
                 onClick={() => setSelectedImg(img.src)}
               >
                 <img
