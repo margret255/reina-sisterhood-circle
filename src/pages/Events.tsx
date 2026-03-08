@@ -10,6 +10,7 @@ const events = [
     date: "Coming Soon",
     location: "TBA",
     tag: "Outreach",
+    icon: Heart,
   },
   {
     title: "Women's Debate",
@@ -17,6 +18,7 @@ const events = [
     date: "Coming Soon",
     location: "TBA",
     tag: "Empowerment",
+    icon: MessageSquare,
   },
   {
     title: "Cancer Awareness Event",
@@ -24,6 +26,7 @@ const events = [
     date: "Coming Soon",
     location: "TBA",
     tag: "Health",
+    icon: Ribbon,
   },
   {
     title: "Endometriosis Talk",
@@ -31,6 +34,7 @@ const events = [
     date: "Coming Soon",
     location: "TBA",
     tag: "Health",
+    icon: Stethoscope,
   },
 ];
 
