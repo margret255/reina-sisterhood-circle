@@ -9,12 +9,12 @@ import circleImg from "@/assets/sisterhood-circle.jpg";
 
 const posts = [
   {
-    title: "5 Ways to Nurture Your Mental Wellness on Campus",
-    excerpt: "Balancing academics, relationships, and self-care can be overwhelming. Here are five practical ways to protect your peace.",
-    category: "Mental Wellness",
+    title: "Financial Glow Up: Budgeting as a Student",
+    excerpt: "Master your finances while in school. Learn practical budgeting strategies that help you manage expenses, save money, and build financial confidence.",
+    category: "Financial Wellness",
     date: "March 5, 2026",
     img: wellnessImg,
-    slug: "mental-wellness-tips",
+    slug: "financial-glow-up-budgeting",
   },
   {
     title: "The Power of Sisterhood: Why Every Woman Needs a Circle",
