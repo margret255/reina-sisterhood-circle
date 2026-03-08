@@ -18,8 +18,8 @@ interface BlogPost {
 }
 
 const typeLabels: Record<PostType, { label: string; color: string }> = {
-  "leader-spotlight": { label: "Leader Spotlight", color: "bg-primary/10 text-primary" },
-  "member-story": { label: "Member Story", color: "bg-accent/20 text-accent-foreground" },
+  "leader-spotlight": { label: "Leader Spotlight", color: "bg-primary text-primary-foreground" },
+  "member-story": { label: "Member Story", color: "bg-accent text-accent-foreground font-bold" },
   "leadership-video": { label: "Leadership Session", color: "bg-secondary text-secondary-foreground" },
   "opinion": { label: "Opinion Piece", color: "bg-muted text-muted-foreground" },
 };
