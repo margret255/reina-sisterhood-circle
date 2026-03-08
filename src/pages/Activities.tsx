@@ -66,9 +66,9 @@ const Activities = () => {
        </section>
 
       {/* Impact Stats */}
-      <section className="py-16 bg-accent/30">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+       <section className="py-8 bg-accent/30">
+         <div className="container mx-auto px-6">
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {impactStats.map((stat, i) => (
               <motion.div
                 key={stat.label}
