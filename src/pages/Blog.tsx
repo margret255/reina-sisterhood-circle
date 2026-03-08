@@ -50,65 +50,25 @@ const posts: BlogPost[] = [
     slug: "leadership-committee-shoot",
   },
   {
-    title: "Financial Glow Up: Budgeting as a Student",
+    title: "From Courage to Confidence: A Member's Journey",
     excerpt:
-      "Master your finances while in school. Learn practical budgeting strategies that help you manage expenses, save money, and build financial confidence.",
-    category: "Financial Wellness",
-    date: "March 5, 2026",
-    img: wellnessImg,
-    type: "opinion",
-    slug: "financial-glow-up-budgeting",
+      "How RWCC helped me rediscover myself, build the courage I needed, and create a safe space where I'm heard, supported, and free to grow.",
+    category: "Member Stories",
+    date: "March 6, 2026",
+    img: memberStoryImg,
+    type: "member-story",
+    slug: "member-journey-courage",
   },
   {
-    title: "The Power of Sisterhood: Why Every Woman Needs a Circle",
+    title: "Our Founder's Story: Leading with Purpose & Motherhood",
     excerpt:
-      "There's something deeply healing about being surrounded by women who understand you. Discover why community matters.",
-    category: "Sisterhood",
-    date: "February 20, 2026",
-    img: circleImg,
+      "Meet the visionary mom behind RWCC. How Faith balances leadership, motherhood, and building a sisterhood that empowers every woman.",
+    category: "Founder Story",
+    date: "March 1, 2026",
+    img: founderImg,
     type: "member-story",
-    slug: "power-of-sisterhood",
+    slug: "founder-faith-motherhood",
   },
-   {
-     title: "Leading with Grace: Lessons for Young Women",
-     excerpt:
-       "Leadership isn't about titles — it's about impact. Explore how young women can lead with authenticity and grace.",
-     category: "Leadership",
-     date: "February 10, 2026",
-     img: empowermentImg,
-     type: "opinion",
-     slug: "leading-with-grace",
-   },
-   {
-     title: "From Courage to Confidence: A Member's Journey",
-     excerpt:
-       "How RWCC helped me rediscover myself, build the courage I needed, and create a safe space where I'm heard, supported, and free to grow.",
-     category: "Member Stories",
-     date: "March 6, 2026",
-     img: memberStoryImg,
-     type: "member-story",
-     slug: "member-journey-courage",
-   },
-   {
-     title: "Motherhood on Campus: You Are Not Alone",
-     excerpt:
-       "Being a student mother comes with unique challenges. Here's how RWCC supports moms pursuing their dreams.",
-     category: "Motherhood",
-     date: "January 28, 2026",
-     img: mentorImg,
-     type: "member-story",
-     slug: "motherhood-on-campus",
-   },
-   {
-     title: "Our Founder's Story: Leading with Purpose & Motherhood",
-     excerpt:
-       "Meet the visionary mom behind RWCC. How Faith balances leadership, motherhood, and building a sisterhood that empowers every woman.",
-     category: "Founder Story",
-     date: "March 1, 2026",
-     img: founderImg,
-     type: "member-story",
-     slug: "founder-faith-motherhood",
-   },
 ];
 
 const Blog = () => {
@@ -127,92 +87,47 @@ const Blog = () => {
 
       <section className="section-padding">
         <div className="container mx-auto">
-          {/* Featured / Leader Spotlight — first post large */}
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 grid md:grid-cols-2 gap-6 bg-card rounded-2xl overflow-hidden shadow-sm"
-          >
-            <div className="aspect-[4/5] md:aspect-auto overflow-hidden">
-              <img
-                src={posts[0].img}
-                alt={posts[0].title}
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <div className="flex flex-col justify-center p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${typeLabels[posts[0].type].color}`}>
-                  {typeLabels[posts[0].type].label}
-                </span>
-                <span className="text-xs text-muted-foreground">{posts[0].date}</span>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
-                {posts[0].title}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">{posts[0].excerpt}</p>
-            </div>
-          </motion.article>
-
-          {/* Video Post */}
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 bg-card rounded-2xl overflow-hidden shadow-sm"
-          >
-            <div className="aspect-video overflow-hidden bg-black">
-              <video
-                src={posts[1].video}
-                controls
-                className="w-full h-full object-cover"
-                poster=""
-              />
-            </div>
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${typeLabels[posts[1].type].color}`}>
-                  {typeLabels[posts[1].type].label}
-                </span>
-                <span className="text-xs text-muted-foreground">{posts[1].date}</span>
-              </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-2">
-                {posts[1].title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{posts[1].excerpt}</p>
-            </div>
-          </motion.article>
-
-          {/* Remaining posts grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {posts.slice(2).map((post, i) => (
+          {/* All posts in equal grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {posts.map((post, i) => (
               <motion.article
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+                className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full"
               >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={post.img}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
+                {post.img ? (
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={post.img}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ) : post.video ? (
+                  <div className="aspect-video overflow-hidden bg-black">
+                    <video
+                      src={post.video}
+                      controls
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : null}
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 mb-3">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${typeLabels[post.type].color}`}>
                       {typeLabels[post.type].label}
                     </span>
                     <span className="text-xs text-muted-foreground">{post.date}</span>
                   </div>
-                  <h3 className="text-xl font-display font-bold text-foreground mb-2">
+                  <h3 className="text-lg font-display font-bold text-foreground mb-2">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-grow">
+                    {post.excerpt}
+                  </p>
                 </div>
               </motion.article>
             ))}
