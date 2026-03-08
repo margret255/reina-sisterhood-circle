@@ -4,13 +4,26 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/Layout";
 import { toast } from "sonner";
-import { Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
+import { Mail, MapPin, Instagram } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    const { error } = await supabase.from("contact_messages").insert({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      message: form.message.trim(),
+    });
+    setLoading(false);
+    if (error) {
+      toast.error("Something went wrong. Please try again.");
+      return;
+    }
     toast.success("Message sent! We'll get back to you soon. 💖");
     setForm({ name: "", email: "", message: "" });
   };
@@ -31,7 +44,6 @@ const Contact = () => {
 
       <section className="section-padding">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 max-w-4xl">
-          {/* Contact Info */}
           <div>
             <h2 className="text-2xl font-display font-bold text-foreground mb-6">Get In Touch</h2>
             <div className="space-y-6">
@@ -61,17 +73,13 @@ const Contact = () => {
                 <a href="#" className="p-3 rounded-full bg-secondary hover:bg-primary/10 transition-colors" aria-label="Instagram">
                   <Instagram size={20} className="text-foreground" />
                 </a>
-                <a href="#" className="p-3 rounded-full bg-secondary hover:bg-primary/10 transition-colors" aria-label="Facebook">
-                  <Facebook size={20} className="text-foreground" />
-                </a>
-                <a href="#" className="p-3 rounded-full bg-secondary hover:bg-primary/10 transition-colors" aria-label="Twitter">
-                  <Twitter size={20} className="text-foreground" />
+                <a href="#" className="p-3 rounded-full bg-secondary hover:bg-primary/10 transition-colors" aria-label="TikTok">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
             <h3 className="text-xl font-display font-bold text-foreground mb-5">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -87,7 +95,9 @@ const Contact = () => {
                 <label className="block text-sm font-medium text-foreground mb-1.5">Message</label>
                 <Textarea value={form.message} onChange={update("message")} placeholder="How can we help?" rows={5} className="rounded-xl" required />
               </div>
-              <Button type="submit" size="lg" className="w-full">Send Message</Button>
+              <Button type="submit" size="lg" className="w-full" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
+              </Button>
             </form>
           </div>
         </div>
