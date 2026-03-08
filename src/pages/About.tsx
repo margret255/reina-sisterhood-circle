@@ -101,7 +101,7 @@ const About = () => {
        {/* Team */}
        <section className="section-padding bg-secondary">
          <div className="container mx-auto">
-           <SectionHeading subtitle="Our Founder" title="Meet Leem" description="The heart and vision behind RWCC." />
+           <SectionHeading subtitle="Our Founder" title="Meet Our Founder" description="The heart and vision behind RWCC." />
            <div className="flex justify-center">
              <div className="bg-card rounded-2xl overflow-hidden shadow-sm max-w-sm">
                <img src={founderImg} alt="Leem, RWCC Founder" className="w-full aspect-[4/3] object-cover" />
