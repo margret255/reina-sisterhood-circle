@@ -99,6 +99,16 @@ const posts: BlogPost[] = [
      type: "member-story",
      slug: "motherhood-on-campus",
    },
+   {
+     title: "Our Founder's Story: Leading with Purpose & Motherhood",
+     excerpt:
+       "Meet the visionary mom behind RWCC. How Faith balances leadership, motherhood, and building a sisterhood that empowers every woman.",
+     category: "Founder Story",
+     date: "March 1, 2026",
+     img: founderImg,
+     type: "member-story",
+     slug: "founder-faith-motherhood",
+   },
 ];
 
 const Blog = () => {
