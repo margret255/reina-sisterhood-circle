@@ -2,13 +2,26 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
+    setLoading(true);
+    const { error } = await supabase.from("newsletter_signups").insert({ email: email.trim() });
+    setLoading(false);
+    if (error) {
+      if (error.code === "23505") {
+        toast.info("You're already subscribed! 💖");
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+      return;
+    }
     toast.success("Thank you for subscribing! 💖");
     setEmail("");
   };
@@ -31,7 +44,9 @@ const NewsletterSection = () => {
             className="bg-card rounded-full"
             required
           />
-          <Button type="submit">Subscribe</Button>
+          <Button type="submit" disabled={loading}>
+            {loading ? "..." : "Subscribe"}
+          </Button>
         </form>
       </div>
     </section>

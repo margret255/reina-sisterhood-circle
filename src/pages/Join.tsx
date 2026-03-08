@@ -5,12 +5,27 @@ import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/Layout";
 import { toast } from "sonner";
 import { Heart } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Join = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", campus: "", reason: "" });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    const { error } = await supabase.from("membership_applications").insert({
+      full_name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim() || null,
+      campus: form.campus.trim(),
+      reason: form.reason.trim(),
+    });
+    setLoading(false);
+    if (error) {
+      toast.error("Something went wrong. Please try again.");
+      return;
+    }
     toast.success("Welcome to the RWCC sisterhood! 💖 We'll be in touch soon.");
     setForm({ name: "", email: "", phone: "", campus: "", reason: "" });
   };
@@ -65,7 +80,9 @@ const Join = () => {
                 <label className="block text-sm font-medium text-foreground mb-1.5">Why do you want to join RWCC?</label>
                 <Textarea value={form.reason} onChange={update("reason")} placeholder="Tell us a little about yourself and why RWCC resonates with you..." rows={4} className="rounded-xl" required />
               </div>
-              <Button type="submit" size="lg" className="w-full">Submit Application</Button>
+              <Button type="submit" size="lg" className="w-full" disabled={loading}>
+                {loading ? "Submitting..." : "Submit Application"}
+              </Button>
             </form>
           </div>
         </div>
