@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import leaderSpotlightImg from "@/assets/blog-leader-spotlight.jpg";
 import memberStoryImg from "@/assets/member-story-reina.jpg";
-import memberStoryImg from "@/assets/member-story-reina.jpg";
 import founderImg from "@/assets/founder-leem.jpg";
 
 type PostType = "leader-spotlight" | "member-story" | "leadership-video" | "opinion";
