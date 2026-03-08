@@ -93,7 +93,7 @@ const Activities = () => {
             title="Our Past Events"
             subtitle="A look back at the impactful events we've organized for our community"
           />
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
             {pastEvents.map((event, i) => (
               <motion.div
                 key={event.title}
