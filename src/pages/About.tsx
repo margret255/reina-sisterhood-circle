@@ -5,6 +5,7 @@ import { Heart, Shield, Eye, Sunrise } from "lucide-react";
 import heroImg from "@/assets/hero-women.jpg";
 import circleImg from "@/assets/sisterhood-circle.jpg";
 import mentorImg from "@/assets/mentorship.jpg";
+import founderImg from "@/assets/founder-leem.jpg";
 
 const coreValues = [
   { icon: Heart, title: "Love & Care", desc: "Creating genuine bonds rooted in unconditional love and mutual respect." },
