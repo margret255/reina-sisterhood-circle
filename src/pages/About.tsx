@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { Heart, Shield, Eye, Sunrise } from "lucide-react";
-import heroImg from "@/assets/hero-women.jpg";
+import heroImg from "@/assets/about-hero-real.jpg";
 import circleImg from "@/assets/how-it-began.jpg";
 import mentorImg from "@/assets/mentorship.jpg";
 import founderImg from "@/assets/founder-leem.jpg";
