@@ -50,65 +50,25 @@ const posts: BlogPost[] = [
     slug: "leadership-committee-shoot",
   },
   {
-    title: "Financial Glow Up: Budgeting as a Student",
+    title: "From Courage to Confidence: A Member's Journey",
     excerpt:
-      "Master your finances while in school. Learn practical budgeting strategies that help you manage expenses, save money, and build financial confidence.",
-    category: "Financial Wellness",
-    date: "March 5, 2026",
-    img: wellnessImg,
-    type: "opinion",
-    slug: "financial-glow-up-budgeting",
+      "How RWCC helped me rediscover myself, build the courage I needed, and create a safe space where I'm heard, supported, and free to grow.",
+    category: "Member Stories",
+    date: "March 6, 2026",
+    img: memberStoryImg,
+    type: "member-story",
+    slug: "member-journey-courage",
   },
   {
-    title: "The Power of Sisterhood: Why Every Woman Needs a Circle",
+    title: "Our Founder's Story: Leading with Purpose & Motherhood",
     excerpt:
-      "There's something deeply healing about being surrounded by women who understand you. Discover why community matters.",
-    category: "Sisterhood",
-    date: "February 20, 2026",
-    img: circleImg,
+      "Meet the visionary mom behind RWCC. How Faith balances leadership, motherhood, and building a sisterhood that empowers every woman.",
+    category: "Founder Story",
+    date: "March 1, 2026",
+    img: founderImg,
     type: "member-story",
-    slug: "power-of-sisterhood",
+    slug: "founder-faith-motherhood",
   },
-   {
-     title: "Leading with Grace: Lessons for Young Women",
-     excerpt:
-       "Leadership isn't about titles — it's about impact. Explore how young women can lead with authenticity and grace.",
-     category: "Leadership",
-     date: "February 10, 2026",
-     img: empowermentImg,
-     type: "opinion",
-     slug: "leading-with-grace",
-   },
-   {
-     title: "From Courage to Confidence: A Member's Journey",
-     excerpt:
-       "How RWCC helped me rediscover myself, build the courage I needed, and create a safe space where I'm heard, supported, and free to grow.",
-     category: "Member Stories",
-     date: "March 6, 2026",
-     img: memberStoryImg,
-     type: "member-story",
-     slug: "member-journey-courage",
-   },
-   {
-     title: "Motherhood on Campus: You Are Not Alone",
-     excerpt:
-       "Being a student mother comes with unique challenges. Here's how RWCC supports moms pursuing their dreams.",
-     category: "Motherhood",
-     date: "January 28, 2026",
-     img: mentorImg,
-     type: "member-story",
-     slug: "motherhood-on-campus",
-   },
-   {
-     title: "Our Founder's Story: Leading with Purpose & Motherhood",
-     excerpt:
-       "Meet the visionary mom behind RWCC. How Faith balances leadership, motherhood, and building a sisterhood that empowers every woman.",
-     category: "Founder Story",
-     date: "March 1, 2026",
-     img: founderImg,
-     type: "member-story",
-     slug: "founder-faith-motherhood",
-   },
 ];
 
 const Blog = () => {
