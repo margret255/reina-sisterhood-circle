@@ -33,7 +33,7 @@ Deno.serve(async (req) => {
     // Step 1: Get OAuth token
     const authString = btoa(`${consumerKey}:${consumerSecret}`);
     const tokenRes = await fetch(
-      "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
+      "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
       { headers: { Authorization: `Basic ${authString}` } }
     );
     
@@ -66,7 +66,7 @@ Deno.serve(async (req) => {
     const password = btoa(`${tillNumber}${passkey}${timestamp}`);
 
     const stkRes = await fetch(
-      "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
+      "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
       {
         method: "POST",
         headers: {
