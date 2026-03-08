@@ -53,7 +53,7 @@ const Events = () => {
       <section className="section-padding">
         <div className="container mx-auto max-w-3xl space-y-6">
           {events.map((event) => (
-            <div key={event.title} className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border hover:shadow-md transition-shadow">
+            <div key={event.title} className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border hover:shadow-md transition-shadow flex gap-5">
               <div className="flex items-start justify-between flex-wrap gap-3">
                 <div className="flex-1 min-w-0">
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
