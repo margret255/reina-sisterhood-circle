@@ -36,7 +36,19 @@ Deno.serve(async (req) => {
       "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
       { headers: { Authorization: `Basic ${authString}` } }
     );
-    const tokenData = await tokenRes.json();
+    
+    const tokenText = await tokenRes.text();
+    console.log("Token response status:", tokenRes.status, "body:", tokenText);
+    
+    let tokenData;
+    try {
+      tokenData = JSON.parse(tokenText);
+    } catch {
+      return new Response(JSON.stringify({ error: "Invalid response from M-Pesa auth" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     if (!tokenData.access_token) {
       console.error("Token error:", tokenData);
