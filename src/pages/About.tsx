@@ -52,9 +52,6 @@ const About = () => {
             <p className="text-muted-foreground leading-relaxed mb-4">
               Reina WombCare Campus Circle was born from a deep desire to create a space where women on campus could come together — not just to study or socialize, but to truly support one another through life's challenges.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              What started as a small group of friends checking in on each other grew into a movement of sisterhood, healing, and empowerment that now touches the lives of women across campus.
-            </p>
             <p className="text-muted-foreground leading-relaxed">
               Today, RWCC stands as a beacon of hope, love, and community — proving that when women lift each other up, extraordinary things happen.
             </p>
