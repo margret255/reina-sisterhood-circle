@@ -6,9 +6,10 @@ import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import NewsletterSection from "@/components/NewsletterSection";
 import heroImg from "@/assets/rwcc-team.jpg";
-import circleImg from "@/assets/sisterhood-circle.jpg";
-import outreachImg from "@/assets/community-outreach.jpg";
-import mentorImg from "@/assets/mentorship.jpg";
+import circleImg from "@/assets/sisterhood-circle-real.jpg";
+import outreachImg from "@/assets/outreach-real.jpg";
+import mentorImg from "@/assets/mentorship-real.jpg";
+import campusEventImg from "@/assets/campus-event-real.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
