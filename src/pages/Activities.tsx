@@ -76,7 +76,7 @@ const Activities = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-6 bg-card rounded-2xl shadow-sm border border-border"
+                className="text-center p-4 bg-card rounded-2xl shadow-sm border border-border"
               >
                 <div className="text-3xl md:text-4xl font-display font-bold text-primary">{stat.value}</div>
                 <div className="text-muted-foreground text-sm mt-1">{stat.label}</div>
