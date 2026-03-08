@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Layout from "@/components/Layout";
 import { toast } from "sonner";
-import { Gift, Heart, BookOpen } from "lucide-react";
+import { Gift, Heart, BookOpen, Phone } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const reasons = [
   { icon: Heart, title: "Mental Wellness Support", desc: "Fund therapy resources, wellness workshops, and self-care kits for women on campus." },
@@ -13,15 +14,38 @@ const reasons = [
 
 const Support = () => {
   const [amount, setAmount] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you for your generous support! 💛 Your contribution makes a difference.");
-    setAmount("");
-    setName("");
-    setEmail("");
+
+    if (!phone || !amount) {
+      toast.error("Please enter your phone number and amount.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("mpesa-stk-push", {
+        body: { phone, amount },
+      });
+
+      if (error) throw error;
+
+      if (data?.success) {
+        toast.success("M-Pesa prompt sent! Check your phone to complete payment. 💛");
+        setAmount("");
+        setPhone("");
+      } else {
+        toast.error(data?.error || "Something went wrong. Please try again.");
+      }
+    } catch (err: any) {
+      console.error("Payment error:", err);
+      toast.error("Failed to initiate payment. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -57,22 +81,36 @@ const Support = () => {
       <section className="section-padding bg-gradient-rose">
         <div className="container mx-auto max-w-lg">
           <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
-            <h3 className="text-2xl font-display font-bold text-foreground text-center mb-6">Make a Contribution</h3>
+            <h3 className="text-2xl font-display font-bold text-foreground text-center mb-2">Make a Contribution</h3>
+            <p className="text-sm text-muted-foreground text-center mb-6">Pay via M-Pesa — Till Number <strong>6502301</strong></p>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Your Name</label>
-                <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" required className="rounded-xl" />
+                <label className="block text-sm font-medium text-foreground mb-1.5">M-Pesa Phone Number</label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
+                  <Input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="0712345678"
+                    required
+                    className="rounded-xl pl-9"
+                  />
+                </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Email</label>
-                <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required className="rounded-xl" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Amount</label>
-                <Input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" min="1" required className="rounded-xl" />
+                <label className="block text-sm font-medium text-foreground mb-1.5">Amount (KES)</label>
+                <Input
+                  type="number"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder="Enter amount"
+                  min="1"
+                  required
+                  className="rounded-xl"
+                />
               </div>
               <div className="flex gap-2 flex-wrap">
-                {["10", "25", "50", "100"].map((a) => (
+                {["100", "250", "500", "1000"].map((a) => (
                   <button
                     key={a}
                     type="button"
@@ -81,14 +119,16 @@ const Support = () => {
                       amount === a ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"
                     }`}
                   >
-                    ${a}
+                    KES {a}
                   </button>
                 ))}
               </div>
-              <Button type="submit" variant="gold" size="lg" className="w-full">Donate Now</Button>
+              <Button type="submit" variant="gold" size="lg" className="w-full" disabled={loading}>
+                {loading ? "Sending prompt…" : "Pay with M-Pesa"}
+              </Button>
             </form>
             <p className="text-xs text-muted-foreground text-center mt-4">
-              Every contribution, no matter the size, makes a meaningful impact. 💛
+              You'll receive an M-Pesa prompt on your phone to complete the payment. 💛
             </p>
           </div>
         </div>
