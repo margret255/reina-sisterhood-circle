@@ -56,19 +56,19 @@ const fadeUp = {
 const Activities = () => {
   return (
     <Layout>
-      <section className="relative py-32 overflow-hidden bg-primary">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground">Activities & Impact</h1>
-          <p className="text-primary-foreground/80 mt-4 max-w-xl mx-auto">
-            See how RWCC is making a real difference in the lives of women on campus and beyond.
-          </p>
-        </div>
-      </section>
+      <section className="relative py-16 overflow-hidden bg-primary">
+         <div className="container mx-auto px-6 text-center">
+           <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground">Activities & Impact</h1>
+           <p className="text-primary-foreground/80 mt-4 max-w-xl mx-auto">
+             See how RWCC is making a real difference in the lives of women on campus and beyond.
+           </p>
+         </div>
+       </section>
 
       {/* Impact Stats */}
-      <section className="py-16 bg-accent/30">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+       <section className="py-8 bg-accent/30">
+         <div className="container mx-auto px-6">
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {impactStats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -76,7 +76,7 @@ const Activities = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-6 bg-card rounded-2xl shadow-sm border border-border"
+                className="text-center p-4 bg-card rounded-2xl shadow-sm border border-border"
               >
                 <div className="text-3xl md:text-4xl font-display font-bold text-primary">{stat.value}</div>
                 <div className="text-muted-foreground text-sm mt-1">{stat.label}</div>
@@ -93,7 +93,7 @@ const Activities = () => {
             title="Our Past Events"
             subtitle="A look back at the impactful events we've organized for our community"
           />
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
             {pastEvents.map((event, i) => (
               <motion.div
                 key={event.title}
@@ -110,7 +110,7 @@ const Activities = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-4">
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
                     {event.tag}
                   </span>
