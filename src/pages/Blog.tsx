@@ -6,6 +6,7 @@ import mentorImg from "@/assets/mentorship.jpg";
 import empowermentImg from "@/assets/empowerment-talk.jpg";
 import circleImg from "@/assets/sisterhood-circle.jpg";
 import memberStoryImg from "@/assets/member-story-reina.jpg";
+import founderImg from "@/assets/founder-leem.jpg";
 
 type PostType = "leader-spotlight" | "member-story" | "leadership-video" | "opinion";
 
