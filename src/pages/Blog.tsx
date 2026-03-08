@@ -68,26 +68,36 @@ const posts: BlogPost[] = [
     type: "member-story",
     slug: "power-of-sisterhood",
   },
-  {
-    title: "Leading with Grace: Lessons for Young Women",
-    excerpt:
-      "Leadership isn't about titles — it's about impact. Explore how young women can lead with authenticity and grace.",
-    category: "Leadership",
-    date: "February 10, 2026",
-    img: empowermentImg,
-    type: "opinion",
-    slug: "leading-with-grace",
-  },
-  {
-    title: "Motherhood on Campus: You Are Not Alone",
-    excerpt:
-      "Being a student mother comes with unique challenges. Here's how RWCC supports moms pursuing their dreams.",
-    category: "Motherhood",
-    date: "January 28, 2026",
-    img: mentorImg,
-    type: "member-story",
-    slug: "motherhood-on-campus",
-  },
+   {
+     title: "Leading with Grace: Lessons for Young Women",
+     excerpt:
+       "Leadership isn't about titles — it's about impact. Explore how young women can lead with authenticity and grace.",
+     category: "Leadership",
+     date: "February 10, 2026",
+     img: empowermentImg,
+     type: "opinion",
+     slug: "leading-with-grace",
+   },
+   {
+     title: "From Courage to Confidence: A Member's Journey",
+     excerpt:
+       "How RWCC helped me rediscover myself, build the courage I needed, and create a safe space where I'm heard, supported, and free to grow.",
+     category: "Member Stories",
+     date: "March 6, 2026",
+     img: memberStoryImg,
+     type: "member-story",
+     slug: "member-journey-courage",
+   },
+   {
+     title: "Motherhood on Campus: You Are Not Alone",
+     excerpt:
+       "Being a student mother comes with unique challenges. Here's how RWCC supports moms pursuing their dreams.",
+     category: "Motherhood",
+     date: "January 28, 2026",
+     img: mentorImg,
+     type: "member-story",
+     slug: "motherhood-on-campus",
+   },
 ];
 
 const Blog = () => {
