@@ -58,23 +58,21 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Step 2: STK Push
-    // Sandbox uses shortcode 174379; production uses actual till number
-    const sandboxShortCode = "174379";
+    // Step 2: STK Push (Production)
     const timestamp = new Date()
       .toISOString()
       .replace(/[-T:.Z]/g, "")
       .slice(0, 14);
-    const password = btoa(`${sandboxShortCode}${passkey}${timestamp}`);
+    const password = btoa(`${tillNumber}${passkey}${timestamp}`);
 
     const stkBody = {
-      BusinessShortCode: sandboxShortCode,
+      BusinessShortCode: tillNumber,
       Password: password,
       Timestamp: timestamp,
-      TransactionType: "CustomerPayBillOnline",
+      TransactionType: "CustomerBuyGoodsOnline",
       Amount: Math.round(Number(amount)),
       PartyA: formattedPhone,
-      PartyB: sandboxShortCode,
+      PartyB: tillNumber,
       PhoneNumber: formattedPhone,
       CallBackURL: `https://xlaedvkpvtpmviysfnxy.supabase.co/functions/v1/mpesa-callback`,
       AccountReference: "RWCC",
@@ -83,7 +81,7 @@ Deno.serve(async (req) => {
     console.log("STK request body:", JSON.stringify(stkBody));
 
     const stkRes = await fetch(
-      "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
+      "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
       {
         method: "POST",
         headers: {
