@@ -56,14 +56,14 @@ const fadeUp = {
 const Activities = () => {
   return (
     <Layout>
-      <section className="relative py-32 overflow-hidden bg-primary">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground">Activities & Impact</h1>
-          <p className="text-primary-foreground/80 mt-4 max-w-xl mx-auto">
-            See how RWCC is making a real difference in the lives of women on campus and beyond.
-          </p>
-        </div>
-      </section>
+      <section className="relative py-16 overflow-hidden bg-primary">
+         <div className="container mx-auto px-6 text-center">
+           <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground">Activities & Impact</h1>
+           <p className="text-primary-foreground/80 mt-4 max-w-xl mx-auto">
+             See how RWCC is making a real difference in the lives of women on campus and beyond.
+           </p>
+         </div>
+       </section>
 
       {/* Impact Stats */}
       <section className="py-16 bg-accent/30">
