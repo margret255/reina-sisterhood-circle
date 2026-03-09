@@ -26,7 +26,7 @@ const Join = () => {
       toast.error("Something went wrong. Please try again.");
       return;
     }
-    toast.success("Welcome to the RWCC sisterhood! 💖 We'll be in touch soon.");
+    toast.success("Welcome to the RWCC sisterhood!  We'll be in touch soon.");
     setForm({ name: "", email: "", phone: "", campus: "", reason: "" });
   };
 

@@ -16,13 +16,13 @@ const NewsletterSection = () => {
     setLoading(false);
     if (error) {
       if (error.code === "23505") {
-        toast.info("You're already subscribed! 💖");
+        toast.info("You're already subscribed! ");
       } else {
         toast.error("Something went wrong. Please try again.");
       }
       return;
     }
-    toast.success("Thank you for subscribing! 💖");
+    toast.success("Thank you for subscribing! ");
     setEmail("");
   };
 

@@ -53,7 +53,7 @@ const StartBranch = () => {
       toast.error("Something went wrong. Please try again.");
       return;
     }
-    toast.success("Application submitted! We'll reach out to you soon. 💖");
+    toast.success("Application submitted! We'll reach out to you soon. ");
     setForm({ fullName: "", email: "", university: "", location: "", motivation: "", estimatedStudents: "" });
   };
 

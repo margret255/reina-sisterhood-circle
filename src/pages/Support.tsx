@@ -34,7 +34,7 @@ const Support = () => {
       if (error) throw error;
 
       if (data?.success) {
-        toast.success("M-Pesa prompt sent! Check your phone to complete payment. 💛");
+        toast.success("M-Pesa prompt sent! Check your phone to complete payment. ");
         setAmount("");
         setPhone("");
       } else {
@@ -128,7 +128,7 @@ const Support = () => {
               </Button>
             </form>
             <p className="text-xs text-muted-foreground text-center mt-4">
-              You'll receive an M-Pesa prompt on your phone to complete the payment. 💛
+              You'll receive an M-Pesa prompt on your phone to complete the payment. 
             </p>
           </div>
         </div>
