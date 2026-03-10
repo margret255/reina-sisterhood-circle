@@ -1,49 +1,47 @@
-import { Calendar, MapPin, Heart, MessageSquare, Ribbon, Stethoscope } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Calendar, MapPin } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
-import SectionHeading from "@/components/SectionHeading";
+import { motion } from "framer-motion";
 
-const events = [
-  {
-    title: "Pad Drive",
-    desc: "Join us in collecting and distributing sanitary pads to support women and girls who lack access to menstrual hygiene products. Together, we can break the stigma and ensure dignity for all.",
-    date: "Coming Soon",
-    location: "TBA",
-    tag: "Outreach",
-    icon: Heart,
-  },
-  {
-    title: "Women's Debate",
-    desc: "An empowering debate session where women engage in thoughtful discussions on topics that matter—building confidence, critical thinking, and public speaking skills.",
-    date: "Coming Soon",
-    location: "TBA",
-    tag: "Empowerment",
-    icon: MessageSquare,
-  },
-  {
-    title: "Cancer Awareness Event",
-    desc: "Raising awareness about cancer prevention, early detection, and support for those affected. Learn the signs, get screened, and join the fight against cancer.",
-    date: "Coming Soon",
-    location: "TBA",
-    tag: "Health",
-    icon: Ribbon,
-  },
-  {
-    title: "Endometriosis Talk",
-    desc: "An informative session about endometriosis—understanding the condition, its symptoms, treatment options, and supporting women living with endo. Breaking the silence on women's health.",
-    date: "Coming Soon",
-    location: "TBA",
-    tag: "Health",
-    icon: Stethoscope,
-  },
-];
+interface EventRow {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  location: string;
+  tag: string;
+  poster_url: string | null;
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const Events = () => {
+  const [events, setEvents] = useState<EventRow[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const { data } = await supabase
+        .from("events")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (data) setEvents(data);
+      setLoading(false);
+    };
+    fetchEvents();
+  }, []);
+
   return (
     <Layout>
       <section className="relative py-32 overflow-hidden bg-accent">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-accent-foreground">Upcoming Events</h1>
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-accent-foreground">
+            Upcoming Events
+          </h1>
           <p className="text-accent-foreground/80 mt-4 max-w-xl mx-auto">
             Mark your calendar and join us at our upcoming gatherings and workshops.
           </p>
@@ -51,32 +49,60 @@ const Events = () => {
       </section>
 
       <section className="section-padding">
-        <div className="container mx-auto max-w-3xl space-y-6">
-          {events.map((event) => (
-            <div key={event.title} className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border hover:shadow-md transition-shadow flex gap-5">
-              <div className="hidden sm:flex w-14 h-14 shrink-0 rounded-full bg-primary/10 items-center justify-center mt-1">
-                <event.icon className="text-primary" size={24} />
-              </div>
-              <div className="flex items-start justify-between flex-wrap gap-3 flex-1 min-w-0">
-                <div className="flex-1 min-w-0">
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
-                    {event.tag}
-                  </span>
-                  <h3 className="text-xl font-display font-bold text-foreground">{event.title}</h3>
-                  <p className="text-muted-foreground mt-2 leading-relaxed">{event.desc}</p>
-                  <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar size={14} className="text-accent" /> {event.date}
+        <div className="container mx-auto max-w-5xl">
+          {loading ? (
+            <p className="text-center text-muted-foreground py-12">Loading events...</p>
+          ) : events.length === 0 ? (
+            <p className="text-center text-muted-foreground py-12">
+              No upcoming events at the moment. Check back soon!
+            </p>
+          ) : (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {events.map((event) => (
+                <motion.div
+                  key={event.id}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="bg-card rounded-xl overflow-hidden shadow-md border border-border group hover:shadow-lg transition-shadow"
+                >
+                  {event.poster_url ? (
+                    <div className="aspect-[3/4] overflow-hidden">
+                      <img
+                        src={event.poster_url}
+                        alt={event.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ) : (
+                    <div className="aspect-[3/4] bg-accent/30 flex items-center justify-center">
+                      <Calendar size={48} className="text-muted-foreground/30" />
+                    </div>
+                  )}
+                  <div className="p-4">
+                    <span className="inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold mb-2">
+                      {event.tag}
                     </span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin size={14} className="text-accent" /> {event.location}
-                    </span>
+                    <h3 className="text-sm font-display font-bold text-foreground leading-snug">
+                      {event.title}
+                    </h3>
+                    <p className="text-muted-foreground mt-1.5 text-xs leading-relaxed line-clamp-3">
+                      {event.description}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={10} /> {event.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MapPin size={10} /> {event.location}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <Button size="sm" className="mt-2 md:mt-0 shrink-0">Register</Button>
-              </div>
+                </motion.div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       </section>
     </Layout>
