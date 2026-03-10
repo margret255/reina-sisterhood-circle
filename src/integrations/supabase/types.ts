@@ -71,6 +71,39 @@ export type Database = {
         }
         Relationships: []
       }
+      events: {
+        Row: {
+          created_at: string
+          date: string
+          description: string
+          id: string
+          location: string
+          poster_url: string | null
+          tag: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          description: string
+          id?: string
+          location?: string
+          poster_url?: string | null
+          tag?: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          description?: string
+          id?: string
+          location?: string
+          poster_url?: string | null
+          tag?: string
+          title?: string
+        }
+        Relationships: []
+      }
       membership_applications: {
         Row: {
           campus: string
