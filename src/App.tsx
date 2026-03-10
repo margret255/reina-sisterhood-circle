@@ -13,6 +13,7 @@ import Join from "./pages/Join";
 import Support from "./pages/Support";
 import Contact from "./pages/Contact";
 import StartBranch from "./pages/StartBranch";
+import AdminEvents from "./pages/AdminEvents";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
