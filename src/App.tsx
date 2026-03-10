@@ -35,6 +35,7 @@ const App = () => (
           <Route path="/support" element={<Support />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/start-branch" element={<StartBranch />} />
+          <Route path="/admin/events" element={<AdminEvents />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
